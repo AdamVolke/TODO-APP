@@ -18,64 +18,64 @@ public class Main {
         int first = 1;
         int second = 1;
         String[] Robin = new String[10];
-        while (homeworks <= 10) {
-            while (first == 1) {
+        while (first == 1) {
+            System.out.println("-----------------------------------------------------");
+            System.out.println("Můžeš mít jen 10 úkolů!");
+            System.out.println("Máš " + (homeworks + 1) + "/10!");
+            System.out.println("-----------------------------------------------------");
+            System.out.println("1) Upravit úkoly");
+            System.out.println("2) Odejít");
+            first = Integer.parseInt(sc.nextLine());
+            if (first == 1) {
                 System.out.println("-----------------------------------------------------");
-                System.out.println("Můžeš mít jen 10 úkolů!");
-                System.out.println("Máš " + homeworks + "/10!");
+                System.out.println("Upravit úkoly");
                 System.out.println("-----------------------------------------------------");
-                System.out.println("1) Upravit úkoly");
-                System.out.println("2) Odejít");
-                first = Integer.parseInt(sc.nextLine());
-                if (first == 1) {
-                    System.out.println("-----------------------------------------------------");
-                    System.out.println("Upravit úkoly");
-                    System.out.println("-----------------------------------------------------");
-                    while (second != 4) {
-                        System.out.println("1) Vytvořit nový úkol");
-                        System.out.println("2) Upravit úkol");
-                        System.out.println("3) Smazat úkol");
-                        System.out.println("4) Vrátit se do hlavního menu");
-                        System.out.println("5) Ukázat úkoly");
-                        second = Integer.parseInt(sc.nextLine());
+                while (second != 4) {
+                    System.out.println("1) Vytvořit nový úkol");
+                    System.out.println("2) Upravit úkol");
+                    System.out.println("3) Smazat úkol");
+                    System.out.println("4) Vrátit se do hlavního menu");
+                    System.out.println("5) Ukázat úkoly");
+                    second = Integer.parseInt(sc.nextLine());
 
-                        if (homeworks >= 10) {
-                            System.out.println("Máš moc úkolů");
-                        } else {
-                            if (second == 1) {
-                                System.out.println("Vyber si pozici");
-                                int haha = Integer.parseInt(sc.nextLine());
-                                haha--;
-                                System.out.println("Napiš úkol");
-
-                                Robin[haha] = sc.nextLine();
-                                homeworks++;
-
-                            }
-                        }
-                        if (second == 2) {
+                    if (homeworks >= 10) {
+                        System.out.println("Máš moc úkolů");
+                    } else {
+                        if (second == 1) {
                             System.out.println("Vyber si pozici");
                             int haha = Integer.parseInt(sc.nextLine());
                             haha--;
                             System.out.println("Napiš úkol");
 
                             Robin[haha] = sc.nextLine();
-                        }
-                        if (second == 3) {
-                            System.out.println("Vyberte pozici úkolu kterou chcete smazat");
-                            int haha = Integer.parseInt(sc.nextLine());
-                            Robin[haha] = "";
-                            System.out.println("úkol byl zníčen");
-                            homeworks--;
-                            break;
-                        }
-                        if (second == 5) {
-                            for (int i = 0; i < 10; i++) {
-                                System.out.println(i + ". úkol    " + Robin[i]);
-                            }
+                            homeworks++;
                         }
                     }
+                    if (second == 2) {
+                        System.out.println("Vyber si pozici");
+                        int haha = Integer.parseInt(sc.nextLine());
+                        haha--;
+                        System.out.println("Napiš úkol");
+
+                        Robin[haha] = sc.nextLine();
+                    }
+                    else if (second == 5) {
+                        for (int i = 0; i < 10; i++) {
+                            System.out.println((i + 1) + ". úkol    " + Robin[i]);
+                        }
+                    }
+                    else if (second == 3) {
+                        System.out.println("Vyberte pozici úkolu kterou chcete smazat");
+                        int haha = Integer.parseInt(sc.nextLine());
+                        haha--;
+                        Robin[haha] = "null";
+                        System.out.println("úkol byl zníčen");
+                        homeworks--;
+                        break;
+                    }
                 }
+            } else {
+                break;
             }
         }
     }
